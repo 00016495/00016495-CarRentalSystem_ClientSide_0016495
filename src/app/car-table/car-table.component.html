@@ -1,0 +1,37 @@
+<header>
+  <app-header (carAdded)="addCarToTable($event)"></app-header>
+</header>
+
+<table class="table-auto w-full border border-gray-200 text-left">
+    <thead class="">
+      <tr>
+        <th class="px-4 py-2 border">ID</th>
+        <th class="px-4 py-2 border">Name</th>
+        <th class="px-4 py-2 border">Model</th>
+        <th class="px-4 py-2 border">Color</th>
+        <th class="px-4 py-2 border">Price per day</th>
+        <th class="px-4 py-2 border">year</th>
+        <th class="px-4 py-2 border">Butons</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars" >
+        <td class="border border-gray-300 px-4 py-2">{{ car.id }}</td>
+        <td class="border border-gray-300 px-4 py-2">{{ car.name }}</td>
+        <td class="border border-gray-300 px-4 py-2">{{ car.model }}</td>
+        <td class="border border-gray-300 px-4 py-2">{{ car.colour }}</td>
+        <td class="border border-gray-300 px-4 py-2">{{ car.pricePerDay }}</td>
+        <td class="border border-gray-300 px-4 py-2">{{ car.year }}</td>
+        <td class="border border-gray-300 flex px-4 py-2">
+          <button 
+            class="bg-blue-500 text-white rounded-sm mr-[20px] w-[50px] py-[10px]" 
+            (click)="editCar(car.id)">Edit</button>
+          
+          <button 
+            class="bg-red-500 text-white rounded-sm w-[50px] py-[10px]" 
+            (click)="deleteCar(car.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

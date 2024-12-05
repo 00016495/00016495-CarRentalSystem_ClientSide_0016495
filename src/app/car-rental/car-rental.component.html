@@ -1,0 +1,134 @@
+<div class="container mx-auto px-[20px] py-4">
+  <a routerLink="/">← Go back</a>
+  <h1 class="text-2xl font-bold">Edit rental</h1>
+  
+  <!-- Form for Creating/Updating Rental -->
+  <div class="mb-4">
+    <form (ngSubmit)="createRental()">
+      <div class="mb-2">
+        <label for="startDate" class="block">Start Date</label>
+        <input
+          id="startDate"
+          [(ngModel)]="rentalForm.startDate"
+          name="startDate"
+          type="datetime-local"
+          class="px-[10px] py-[5px] border rounded w-full"
+          required
+        />
+      </div>
+      
+      <div class="mb-2">
+        <label for="endDate" class="block">End Date</label>
+        <input
+          id="endDate"
+          [(ngModel)]="rentalForm.endDate"
+          name="endDate"
+          type="datetime-local"
+          class="px-[10px] py-[5px] border rounded w-full"
+          required
+        />
+      </div>
+      
+      <div class="mb-2">
+        <label for="totalPrice" class="block">Total Price:</label>
+        <input
+          id="totalPrice"
+          [(ngModel)]="rentalForm.totalPrice"
+          name="totalPrice"
+          type="number"
+          class="px-[10px] py-[5px] border rounded w-full"
+        />
+      </div>
+
+      <div class="mb-2">
+        <label for="renterName" class="block">Renter Name:</label>
+        <input
+          id="renterName"
+          [(ngModel)]="rentalForm.renterName"
+          name="renterName"
+          class="px-[10px] py-[5px] border rounded w-full"
+        />
+      </div>
+      
+      <div class="mb-2">
+        <label for="renterContact" class="block">Renter Contact:</label>
+        <input
+          id="renterContact"
+          [(ngModel)]="rentalForm.renterContact"
+          name="renterContact"
+          class="px-[10px] py-[5px] border rounded w-full"
+        />
+      </div>
+
+      <button type="submit" class="px-4 py-2  bg-gray-500 rounded-sm text-white">
+        Add rental
+      </button>
+    </form>
+  </div>
+
+  <!-- Existing Rentals -->
+  <div *ngIf="rental.rentals && rental.rentals.length > 0">
+    <h2 class="mt-6 text-xl font-semibold">Existing Rentals</h2>
+    <div *ngFor="let rentalItem of rental.rentals" class="border p-4 mb-2 rounded shadow">
+      <div>
+        <strong>Car ID:</strong>
+        <input
+          [(ngModel)]="rentalItem.carId"
+          class="border rounded p-1 w-full"
+        />
+      </div>
+      <div>
+        <strong>Renter Name:</strong>
+        <input
+          [(ngModel)]="rentalItem.renterName"
+          class="border rounded p-1 w-full"
+        />
+      </div>
+      <div>
+        <strong>Renter Contact:</strong>
+        <input
+          [(ngModel)]="rentalItem.renterContact"
+          class="border rounded p-1 w-full"
+        />
+      </div>
+      <div>
+        <strong>Start Date:</strong>
+        <input
+          [(ngModel)]="rentalItem.startDate"
+          type="date"
+          class="border rounded p-1 w-full"
+        />
+      </div>
+      <div>
+        <strong>End Date:</strong>
+        <input
+          [(ngModel)]="rentalItem.endDate"
+          type="date"
+          class="border rounded p-1 w-full"
+        />
+      </div>
+      <div>
+        <strong>Total Price:</strong>
+        <input
+          [(ngModel)]="rentalItem.totalPrice"
+          type="number"
+          class="border rounded p-1 w-full"
+        />
+      </div>
+  
+      <button
+        (click)="updateRental(rentalItem)"
+        class="bg-gray-500 px-4 py-2 mr-2 rounded text-white"
+      >
+        Save
+      </button>
+      <button
+        (click)="deleteRental(rentalItem.id)"
+        class="bg-red-600 px-4 py-2 rounded text-white"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,100 @@
+<div class="p-4  bg-gray-100 rounded shadow">
+    <h2 class="text-xl font-bold mb-4 text-center">Add a New Car</h2>
+  
+    <form (ngSubmit)="addCar()">
+      <div class="mb-3">
+        <label for="model" class="block text-sm font-medium">Model</label>
+        <input
+          id="model"
+          type="text"
+          class="w-full p-2 border rounded"
+          [(ngModel)]="newCar.model"
+          name="model"
+          required
+        />
+      </div>
+  
+      <div class="mb-3">
+        <label for="name" class="block text-sm font-medium">Name</label>
+        <input
+          id="name"
+          type="text"
+          class="w-full p-2 border rounded"
+          [(ngModel)]="newCar.name"
+          name="name"
+          required
+        />
+      </div>
+  
+      
+  
+      <div class="flex gap-[20px] w-full">
+
+        <div class="mb-3 w-1/4">
+          <label for="colour" class="block text-sm font-medium">Colour</label>
+          <input
+            id="colour"
+            type="text"
+            class="w-full p-2 border rounded"
+            [(ngModel)]="newCar.colour"
+            name="colour"
+            required
+          />
+        </div>
+    
+        <div class="mb-3 w-1/4">
+          <label for="year" class="block text-sm font-medium">Year</label>
+          <input
+            id="year"
+            type="number"
+            class="w-full p-2 border rounded"
+            [(ngModel)]="newCar.year"
+            name="year"
+            min="1900"
+            max="2099"
+          />
+        </div>
+        <div class="mb-3 w-1/4">
+          <label for="pricePerDay" class="block text-sm font-medium">Price Per Day</label>
+          <input
+            id="pricePerDay"
+            type="number"
+            class="w-full p-2 border rounded"
+            [(ngModel)]="newCar.pricePerDay"
+            name="pricePerDay"
+          />
+        </div>
+    
+        <div class="mb-3 w-1/4">
+          <label for="quantity" class="block text-sm font-medium">Quantity</label>
+          <input
+            id="quantity"
+            type="number"
+            class="w-full p-2 border rounded"
+            [(ngModel)]="newCar.quantity"
+            name="quantity"
+            min="0"
+          />
+        </div>
+      </div>
+  
+      <div class="mb-3 flex items-center">
+        <input
+          id="isAvailable"
+          type="checkbox"
+          [(ngModel)]="newCar.isAvailable"
+          name="isAvailable"
+          class="mr-2"
+        />
+        <label for="isAvailable" class="text-sm font-medium">Is Available</label>
+      </div>
+  
+      <button
+        type="submit"
+        class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+      >
+        Add Car
+      </button>
+    </form>
+  </div>
+  
